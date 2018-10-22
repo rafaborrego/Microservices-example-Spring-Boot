@@ -1,0 +1,26 @@
+
+version: '3'
+
+services:
+
+    message-service:
+        image: message-poc/message-service
+        ports:
+            - 8081:8081
+        depends_on:
+            - consul
+
+    uuid-service:
+        image: message-poc/uuid-service
+        ports:
+            - 8082:8082
+        depends_on:
+            - consul
+
+    consul:
+        image: consul:latest
+        ports:
+            - 8300:8300
+            - 8500:8500
+            - 8600:8600
+        command: consul agent -dev -ui -client 0.0.0.0
