@@ -1,0 +1,17 @@
+
+server:
+  port: 8082
+
+spring:
+  application:
+      name: uuid-service
+
+  cloud:
+    consul:
+      discovery:
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 15s
+
+api:
+  uuidPrefix: BEGIN
+  uuidSuffix: END

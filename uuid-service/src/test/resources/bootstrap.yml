@@ -1,0 +1,15 @@
+
+# Disable the Consul registration for the tests
+
+spring:
+  application:
+    name: uuid-service
+  cloud:
+    bus:
+      enabled: false
+    discovery:
+      enabled: false
+    consul:
+      enabled: false
+      config:
+        enabled: false
