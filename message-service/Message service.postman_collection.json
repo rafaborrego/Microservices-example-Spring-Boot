@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "5ccfe702-c796-4cf7-9043-80baeee7f006",
+		"name": "Message service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "16d87d91-486c-47b6-8e6e-6f37c5b73b02",
+			"name": "Add message",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"content\":\"Hello world\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "78a3133b-027a-4de1-b12b-71a128e68d17",
+			"name": "Get messages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8081/v1/messages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "ea1de8a0-5f2c-4044-b376-ef44f7d8dce1",
+			"name": "Modify message",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"content\": \"New content\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/v1/messages/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"messages",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "b28cde3d-2f3c-49b1-8364-7e14d6cbf36a",
+			"name": "Delete message",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8081/v1/messages/15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"messages",
+						"15"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

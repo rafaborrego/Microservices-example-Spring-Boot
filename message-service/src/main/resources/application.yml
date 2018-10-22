@@ -1,0 +1,17 @@
+
+server:
+  port: 8081
+
+spring:
+  application:
+      name: message-service
+
+  cloud:
+    consul:
+      discovery:
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 15s
+
+feign:
+    hystrix:
+        enabled: true

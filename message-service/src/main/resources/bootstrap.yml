@@ -1,0 +1,19 @@
+
+# General settings to connect to Consul
+
+spring:
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+
+---
+
+# Specific settings to connect to Consul on Docker
+
+spring:
+  profiles: docker
+  cloud:
+    consul:
+      host: consul
+      port: 8500
