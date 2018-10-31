@@ -23,9 +23,7 @@ It is structured in these folders:
 - docker-compose: allows the developers work with the services using Docker without worrying about the infrastructure or other services.
 
 
-###############
 # Assumptions #
-############### 
 
 - The message content will be plain text. In case of wanting to allow HTML, etc. we would 
 just have modify the validator of the class XssValidator. An alternative would have been 
@@ -51,17 +49,13 @@ it will throw an error.
 - The service should not allow to store blank messages.
 
 
-###########
 # Testing #
-###########
 
 It includes unit, integration and contract tests. The contract ones use Spring Cloud Contract, 
 that generates tests on the producer side and stubs that can be used by the consumer.
 
 
-#############
 # Endpoints #
-#############
 
 I have added a file to each project that can be imported in Postman. Each of them has 
 a collection of endpoints ready to use. 
@@ -74,9 +68,7 @@ would have been to implement a custom health endpoint for Consul and get metrics
 the services using other tools like New Relic.
 
 
-##########
 # Consul #
-##########
 
 The services use the default port of Consul (8500), using http://localhost:8500 locally 
 and http://consul:8500 on Docker. The default url to view the services in the browser is:
@@ -125,9 +117,7 @@ spring:
       port: 8700
 
 
-###############
 # Compilation #
-###############
 
 It is important that the first one is executed with install instead of package because it 
 generates a stubs jar in the local Maven repository that will be used by the tests of the other.
@@ -143,9 +133,7 @@ but it hasn't been released yet a safer version of them. In a real life applicat
 it would be needed a more thorough analysis of them before releasing the services to Prod.
 
 
-###############
 # Run locally #
-###############
 
 1) Consul:
 
@@ -161,9 +149,7 @@ cd ../message-service
 java -jar target/message-service-0.0.1-SNAPSHOT.jar
 
 
-###################
 # Run with Docker #
-###################
 
 1) Start the images:
 
