@@ -176,12 +176,12 @@ docker-compose rm message-service uuid-service consul
 
 # To do #
 
-There are a few other things that I would like to add or change:
+There are a few things that I would like to add or change:
 - Add pagination
 - Fix the way of generating dates in JSON
 - Monitoring using e.g. New Relic
 - Add performance tests
 - Remove unnecessary dependencies
 
-Keep an eye on the project as I will add them bit by biti
+Keep an eye on the project as I will add them bit by bit
 
