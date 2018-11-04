@@ -2,7 +2,7 @@
 This project contains examples of how to build microservices using the following technologies:
 - Circuit breaker using hystrix
 - Consume services using Feign
-- Contract, integration and unit tests
+- [Contract](http://rafaborrego.co.uk/contract-testing-using-spring-cloud), integration and unit tests
 - Docker
 - Docker Compose
 - Entity/DTO conversion using Orika
@@ -17,13 +17,20 @@ This project contains examples of how to build microservices using the following
 - Swagger documentation
 - XSS validation
 
+It uses a custom parent project so all the Maven dependencies and other configurations (e.g. OWASP checks) are only defined in one place. This reduces the maintenance effort because we only have to update the dependencies in one place.
+
 It is structured in these folders:
+- service-parent: contains the dependency versions and other configurations.
 - message-service: a consumer service that allows to manage messages.
 - uuid-service: a provider service that generates UUIDs used to identify the messages.
 - docker-compose: allows the developers work with the services using Docker without worrying about the infrastructure or other services.
 
 
-# Assumptions #
+# Functionality #
+
+The main service allows to store, modify and delete messages. It has a few intended restrictions like not allowing to modify messages after some time to show how to handle and test this type of scenario. 
+
+I have done some simplifications as its main goal is to show how different technologies can be used together:
 
 - The message content will be plain text. In case of wanting to allow HTML, etc. we would 
 just have modify the validator of the class XssValidator. An alternative would have been 
