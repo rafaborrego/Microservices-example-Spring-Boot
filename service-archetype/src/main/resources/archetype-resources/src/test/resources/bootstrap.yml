@@ -1,0 +1,15 @@
+
+# Disable the Consul registration for the tests
+
+spring:
+  application:
+    name: ${artifactId}
+  cloud:
+    bus:
+      enabled: false
+    discovery:
+      enabled: false
+    consul:
+      enabled: false
+      config:
+        enabled: false

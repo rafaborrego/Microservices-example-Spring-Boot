@@ -20,6 +20,7 @@ This project contains examples of how to build microservices using the following
 It uses a custom parent project so all the Maven dependencies and other configurations (e.g. OWASP checks) are only defined in one place. This reduces the maintenance effort because we only have to update the dependencies in one place.
 
 It is structured in these folders:
+- service-archetype: a tool to generate new services just running one command.
 - service-parent: contains the dependency versions and other configurations.
 - message-service: a consumer service that allows to manage messages.
 - uuid-service: a provider service that generates UUIDs used to identify the messages.
