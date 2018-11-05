@@ -10,6 +10,8 @@ import ${groupId}.${domain}.entity.${domainCamelCase};
 public interface ${domainCamelCase}Controller {
 
     @ApiOperation(value = "Gets ${domain}s")
-    @ApiResponses(value = @ApiResponse(code = 200, message = "${domain} returned successfully"))
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "${domainCamelCase} returned successfully"),
+                            @ApiResponse(code = 404, message = "${domainCamelCase} not found")})
     ${domainCamelCase} get${domainCamelCase}(Long id);
 }
+
