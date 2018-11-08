@@ -9,7 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static junit.framework.TestCase.assertTrue;
+import ${groupId}.${domain}.dto.${domainCamelCase}OutputDto;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
@@ -25,15 +26,15 @@ public class ${domainCamelCase}IntegrationTest {
     public void generate${domainCamelCase}ShouldReturn${domainCamelCase}() {
 
         // When
-        ResponseEntity<String> responseEntity = ${domain}TestClient.get${domainCamelCase}();
+        ResponseEntity<${domainCamelCase}OutputDto> responseEntity = ${domain}TestClient.get${domainCamelCase}ById(1L);
 
         // Then
         assertThat(responseEntity.getStatusCode(), is(equalTo(HttpStatus.OK)));
 
         // And
+        ${domainCamelCase}OutputDto expected${domainCamelCase} = null;
+        ${domainCamelCase}OutputDto generated${domainCamelCase} = responseEntity.getBody();
 
-        String generated${domainCamelCase} = responseEntity.getBody();
-
-        assertTrue(generated${domainCamelCase}.matches());
+        assertThat(generated${domainCamelCase}, is(equalTo(expected${domainCamelCase})));
     }
 }

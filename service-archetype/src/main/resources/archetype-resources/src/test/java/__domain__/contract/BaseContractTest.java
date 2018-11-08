@@ -1,13 +1,14 @@
 package ${groupId}.${domain}.contract;
 
-import ${groupId}.${domain}.${domainCamelCase}ControllerImpl;
+import ${groupId}.${domain}.controller.${domainCamelCase}ControllerImpl;
+import ${groupId}.${domain}.mapper.BeanMapper;
 import ${groupId}.${domain}.service.${domainCamelCase}Service;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
+import ma.glasnost.orika.MapperFactory;
+import ma.glasnost.orika.impl.DefaultMapperFactory;
 import org.junit.Before;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 /**
  * Base class for the contract tests on the Producer side.
@@ -18,10 +19,11 @@ public class BaseContractTest {
     @Before
     public void setup() {
 
+        BeanMapper beanMapper = configureBeanMapper();
         ${domainCamelCase}Service ${domain}ServiceMock = configure${domainCamelCase}ServiceMock();
 
         RestAssuredMockMvc.standaloneSetup(
-                new ${domainCamelCase}ControllerImpl(${domainCamelCase}ServiceMock));
+                new ${domainCamelCase}ControllerImpl(${domain}ServiceMock, beanMapper));
     }
 
     private ${domainCamelCase}Service configure${domainCamelCase}ServiceMock() {
@@ -29,5 +31,12 @@ public class BaseContractTest {
         ${domainCamelCase}Service ${domain}Service = mock(${domainCamelCase}Service.class);
 
         return ${domain}Service;
+    }
+
+    private BeanMapper configureBeanMapper() {
+
+        MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
+
+        return new BeanMapper(mapperFactory);
     }
 }
