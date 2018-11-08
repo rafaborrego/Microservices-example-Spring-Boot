@@ -79,6 +79,13 @@
             <scope>compile</scope>
         </dependency>
 
+        <!--Memory database-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
         <!--Testing libraries: JUnit, Hamcrest, etc.-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

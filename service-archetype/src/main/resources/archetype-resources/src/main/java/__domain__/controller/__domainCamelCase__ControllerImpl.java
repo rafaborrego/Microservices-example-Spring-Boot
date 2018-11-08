@@ -26,7 +26,7 @@ public class ${domainCamelCase}ControllerImpl implements ${domainCamelCase}Contr
     }
 
     @Override
-    @GetMapping
+    @GetMapping(Endpoint.PATH_DOMAIN_ID)
     public ${domainCamelCase}OutputDto get${domainCamelCase}ById(Long id) {
 
         return beanMapper.map(${domain}Service.get${domainCamelCase}ById(id), ${domainCamelCase}OutputDto.class);
