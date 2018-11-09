@@ -4,13 +4,17 @@ import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
 
-    description "Should return a ${domainCamelCase}"
+    description "Should return ${domain}s"
     request{
         method GET()
-        url("/${domain}")
+        url("/${domain}s")
     }
     response {
         status 200
-        body("")
+        body("""
+            {
+              "${domain}s": []
+            }
+            """)
     }
 }

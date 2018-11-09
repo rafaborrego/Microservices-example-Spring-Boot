@@ -12,6 +12,8 @@ import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = ${groupId}.${domain}.controller.Endpoint.BASE_DOMAIN_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class ${domainCamelCase}ControllerImpl implements ${domainCamelCase}Controller {
@@ -71,7 +73,7 @@ public class ${domainCamelCase}ControllerImpl implements ${domainCamelCase}Contr
 
     private ${domainCamelCase}sDto convert${domainCamelCase}sTo${domainCamelCase}sDto(Iterable<${domainCamelCase}> ${domain}s) {
 
-        Iterable<${domainCamelCase}OutputDto> converted${domainCamelCase}s = beanMapper.mapAsList(${domain}s, ${domainCamelCase}OutputDto.class);
+        List<${domainCamelCase}OutputDto> converted${domainCamelCase}s = beanMapper.mapAsList(${domain}s, ${domainCamelCase}OutputDto.class);
 
         ${domainCamelCase}sDto ${domain}sDto = new ${domainCamelCase}sDto();
         ${domain}sDto.set${domainCamelCase}s(converted${domainCamelCase}s);

@@ -37,6 +37,7 @@ class ${domainCamelCase}TestClient {
     ResponseEntity<Map> create${domainCamelCase}(String content) {
 
         Map<String, String> requestBodyMap = new HashMap<>();
+        requestBodyMap.put("content", content);
 
         return restTemplate.postForEntity(Endpoint.BASE_DOMAIN_URL, requestBodyMap, Map.class);
     }
@@ -44,6 +45,7 @@ class ${domainCamelCase}TestClient {
     ResponseEntity<Map> modify${domainCamelCase}(Long ${domain}Id, String content) {
 
         Map<String, String> requestBodyMap = new HashMap<>();
+        requestBodyMap.put("content", content);
 
         String modificationUrl = Endpoint.BASE_DOMAIN_URL + "/" + ${domain}Id;
 

@@ -99,6 +99,13 @@
             <artifactId>spring-cloud-starter-contract-verifier</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--Contract testing on the Consumer side-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-contract-stub-runner</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

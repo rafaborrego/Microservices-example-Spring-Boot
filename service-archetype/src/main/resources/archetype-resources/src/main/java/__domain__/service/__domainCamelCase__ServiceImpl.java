@@ -30,7 +30,7 @@ public class ${domainCamelCase}ServiceImpl implements ${domainCamelCase}Service 
     @Transactional(readOnly = true)
     public Iterable<${domainCamelCase}> get${domainCamelCase}s() {
 
-        return ${domain}Repository.findAll();
+        return ${domain}Repository.findNonDeleted${domainCamelCase}sOrderedByCreationTimestamp();
     }
 
     @Override
@@ -41,7 +41,9 @@ public class ${domainCamelCase}ServiceImpl implements ${domainCamelCase}Service 
         ${domainCamelCase} ${domain} = new ${domainCamelCase}();
         ${domain}.setCreationTimestamp(currentDateTime);
         ${domain}.setLastUpdateTimestamp(currentDateTime);
-        // Add the content of ${domain}Data to the entity
+
+        // Add the content of ${domain}Data to the entity, for example:
+        ${domain}.setContent(${domain}Data.getContent());
 
         ${domain}Repository.save(${domain});
 
@@ -54,13 +56,19 @@ public class ${domainCamelCase}ServiceImpl implements ${domainCamelCase}Service 
         ${domainCamelCase} ${domain} = ${domain}Repository.findById(${domain}Id)
             .orElseThrow(() -> new ${domainCamelCase}NotFoundException(${domain}Id));
 
+        if (${domain}.isDeleted()) {
+            throw new ${domainCamelCase}NotFoundException(${domain}Id);
+        }
+
         return modify${domainCamelCase}(${domain}, ${domain}Data);
     }
 
     private ${domainCamelCase} modify${domainCamelCase}(${domainCamelCase} ${domain}, ${domainCamelCase}InputDto ${domain}Data) {
         
         ${domain}.setLastUpdateTimestamp(LocalDateTime.now());
-        // Modify the entity with the content of ${domain}Data
+
+        // Modify the entity with the content of ${domain}Data, for example:
+        ${domain}.setContent(${domain}Data.getContent());
 
         return ${domain}Repository.save(${domain});
     }

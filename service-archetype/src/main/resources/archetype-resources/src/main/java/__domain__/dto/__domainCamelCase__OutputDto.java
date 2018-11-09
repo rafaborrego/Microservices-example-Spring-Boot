@@ -27,6 +27,10 @@ public class ${domainCamelCase}OutputDto {
     @ApiModelProperty(notes = "If the ${domain} is deleted")
     private boolean deleted;
 
+    // Sample field so we can do some validations on the tests
+    @ApiModelProperty(notes = "The ${domain} content")
+    private String content;
+
 
     public Long getId() {
         return id;
@@ -58,5 +62,13 @@ public class ${domainCamelCase}OutputDto {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

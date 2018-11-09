@@ -21,6 +21,10 @@ public class ${domainCamelCase} {
     @Column(name = "deleted")
     private boolean deleted;
 
+    // Sample field so we can do some validations on the tests
+    @Column(name = "content", nullable = false)
+    private String content;
+
 
     public Long getId() {
         return id;
@@ -52,5 +56,13 @@ public class ${domainCamelCase} {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
