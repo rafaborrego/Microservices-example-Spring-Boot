@@ -41,6 +41,23 @@
                 <include>**/*.groovy</include>
             </includes>
         </fileSet>
+
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory>flyway</directory>
+            <includes>
+                <include>**/*.conf</include>
+                <include>**/*.ps1</include>
+            </includes>
+        </fileSet>
+
+        <fileSet filtered="true" encoding="UTF-8">
+            <directory></directory>
+            <includes>
+                <include>.gitignore</include>
+                <include>Dockerfile</include>
+                <include>README.md</include>
+            </includes>
+        </fileSet>
     </fileSets>
 
 </archetype-descriptor>
