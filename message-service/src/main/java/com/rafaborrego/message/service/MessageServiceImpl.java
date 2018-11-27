@@ -1,13 +1,12 @@
 package com.rafaborrego.message.service;
 
+import com.rafaborrego.message.client.UuidClient;
 import com.rafaborrego.message.exception.InvalidMessageContentException;
 import com.rafaborrego.message.exception.MessageNotDeletableException;
 import com.rafaborrego.message.exception.MessageNotFoundException;
 import com.rafaborrego.message.exception.MessageNotModifiableException;
 import com.rafaborrego.message.model.Message;
 import com.rafaborrego.message.repository.MessageRepository;
-import com.rafaborrego.message.client.UuidClient;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

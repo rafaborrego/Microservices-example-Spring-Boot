@@ -15,7 +15,7 @@
     <parent>
         <groupId>com.rafaborrego</groupId>
         <artifactId>service-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
         <relativePath/>
     </parent>
 
@@ -73,10 +73,17 @@
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
 
-        <!-- Mapper for Entity / DTO conversion -->
+        <!--Mapper for Entity / DTO conversion-->
         <dependency>
             <groupId>ma.glasnost.orika</groupId>
             <artifactId>orika-core</artifactId>
+        </dependency>
+
+        <!--Generation of getters and setters-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <!--Library for managing HTML, JS, ... Used to detect XSS attacks-->

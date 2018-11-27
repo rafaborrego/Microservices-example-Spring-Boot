@@ -3,7 +3,6 @@ package com.rafaborrego.message.controller;
 import com.rafaborrego.message.dto.MessageInputDto;
 import com.rafaborrego.message.dto.MessageOutputDto;
 import com.rafaborrego.message.dto.MessagesDto;
-import com.rafaborrego.message.exception.InvalidNumberMessagesException;
 import com.rafaborrego.message.mapper.BeanMapper;
 import com.rafaborrego.message.model.Message;
 import com.rafaborrego.message.service.MessageService;
