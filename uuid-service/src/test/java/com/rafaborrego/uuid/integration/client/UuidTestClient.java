@@ -1,4 +1,4 @@
-package com.rafaborrego.uuid.integration;
+package com.rafaborrego.uuid.integration.client;
 
 import com.rafaborrego.uuid.controller.Endpoint;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -8,7 +8,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 @ActiveProfiles("test")
 @Component
-class UuidTestClient {
+public class UuidTestClient {
 
     private final TestRestTemplate restTemplate;
 
@@ -16,7 +16,7 @@ class UuidTestClient {
         this.restTemplate = restTemplate;
     }
 
-    ResponseEntity<String> generateUuid() {
+    public ResponseEntity<String> generateUuid() {
 
         return restTemplate.getForEntity(Endpoint.BASE_UUID_URL, String.class);
     }

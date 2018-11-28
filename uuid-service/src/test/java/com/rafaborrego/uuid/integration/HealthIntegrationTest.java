@@ -1,12 +1,10 @@
 package com.rafaborrego.uuid.integration;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import com.rafaborrego.uuid.integration.client.HealthTestClient;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Map;
 
@@ -14,27 +12,31 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class HealthIntegrationTest {
 
-    private static final String UP_STATUS = "UP";
     private static final String STATUS_MAP_KEY = "status";
 
     @Autowired
     private HealthTestClient healthTestClient;
 
-    @Test
-    public void shouldGetStatusUp() {
+    private ResponseEntity<Map> responseEntity;
 
-        // When
-        ResponseEntity<Map> responseEntity = healthTestClient.getServiceStatus();
+    @When("the client calls the health endpoint")
+    public void the_client_calls_the_health_endpoint() {
 
-        // Then
-        assertThat(responseEntity.getStatusCode(), is(equalTo(HttpStatus.OK)));
+        responseEntity = healthTestClient.getServiceStatus();
+    }
 
-        // And
+    @Then("the health response status code should be {int}")
+    public void the_health_response_status_code_should_be(Integer expectedHttpStatus) {
+
+        assertThat(responseEntity.getStatusCode().value(), is(equalTo(expectedHttpStatus)));
+    }
+
+    @Then("the result should be {string}")
+    public void the_result_should_be(String expectedStatus) {
+
         String status = (String) responseEntity.getBody().get(STATUS_MAP_KEY);
-        assertThat(status, is(equalTo(UP_STATUS)));
+        assertThat(status, is(equalTo(expectedStatus)));
     }
 }

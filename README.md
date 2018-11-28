@@ -16,6 +16,7 @@ This project contains examples of how to build microservices using the following
 - REST features provided by Spring Boot
 - Service discovery using Consul
 - Swagger documentation
+- Integration tests with Cucumber
 - XSS validation
 
 It uses a custom parent project so all the Maven dependencies and other configurations (e.g. OWASP checks) are only defined in one place. This reduces the maintenance effort because we only have to update the dependencies in one place.

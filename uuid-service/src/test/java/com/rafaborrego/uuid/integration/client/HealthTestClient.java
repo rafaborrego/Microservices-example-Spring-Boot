@@ -1,4 +1,4 @@
-package com.rafaborrego.uuid.integration;
+package com.rafaborrego.uuid.integration.client;
 
 import com.rafaborrego.uuid.controller.Endpoint;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +13,12 @@ import java.util.Map;
  */
 
 @Component
-class HealthTestClient {
+public class HealthTestClient {
 
     @Autowired
     private TestRestTemplate restTemplate;
 
-    ResponseEntity<Map> getServiceStatus() {
+    public ResponseEntity<Map> getServiceStatus() {
 
         return restTemplate.getForEntity(Endpoint.HEALTH_ENDPOINT, Map.class);
     }
